@@ -133,17 +133,20 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let item of invoiceForm.controls.line_items.value; let pos = index">
-            <td>{{ pos+1 }} </td>
-            <td><input class="form-control" type="text"></td>
-            <td><textarea name="" id="" cols="30" rows="1"></textarea></td>
-            <td><input class="form-control" type="text"></td>
-            <td><input class="form-control" type="text"></td>
-            <td><input class="form-control" type="text"></td>
-            <td></td>
+          <tr formArrayName="line_items" *ngFor="let item of invoiceForm.get('line_items').controls; let pos = index">
+             <ng-container [formGroupName]="pos">
+              <td>{{ pos+1 }} </td>
+              <td><input formControlName="name" name="name" class="form-control" type="text"></td>
+              <td><textarea formControlName="description" name="" id="" cols="30" rows="1"></textarea></td>
+              <td><input formControlName="quantity" class="form-control" type="text"></td>
+              <td><input formControlName="price_cents" class="form-control" type="text"></td>
+              <td><input class="form-control" type="text"></td>
+              <td></td>
+            </ng-container>
           </tr>
         </tbody>
       </table>
+      <button (click)="addItem()">+</button>
     </div>
   </div>
 </form>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
+
 
 @Component({
   selector: 'app-invoice',
@@ -8,6 +9,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class InvoiceComponent implements OnInit {
   public invoiceForm: FormGroup;
+  public lineItems: FormArray;
 
   constructor(private _fb: FormBuilder) {
     this.invoiceForm = this._fb.group({
@@ -27,11 +29,26 @@ export class InvoiceComponent implements OnInit {
       invoice_number: [""],
       invoice_period: [""],
       invoice_date: [""],
-      invoice_due_date: [""]
+      invoice_due_date: [""],
+      line_items: this._fb.array([ ])
     });
   }
 
   ngOnInit() {
+  }
+
+  createListItem(): FormGroup {
+    return this._fb.group({
+      name: '',
+      description: '',
+      quantity: '',
+      price_cents: 0
+    });
+  }
+
+  addItem(): void {
+    this.lineItems = this.invoiceForm.get('line_items') as FormArray;
+    this.lineItems.push(this.createListItem());
   }
 
 }
