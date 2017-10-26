@@ -1,35 +1,41 @@
-<form class="form">
+<form class="form" [formGroup]="invoiceForm">
   <div class="row">
     <div class="col-sm-6">
       <h2>Allgemeine Daten</h2>
       <div class="form-group row">
+        <label class="col-sm-3 col-form-label" for="customer_id">Kundennr.</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" formControlName="customer_id">
+        </div>
+      </div>
+      <div class="form-group row">
         <label class="col-sm-3 col-form-label" for="customer_name">Name</label>
         <div class="col-sm-9">
-          <input type="text" class="form-control">
+          <input type="text" class="form-control" formControlName="customer_name">
         </div>
       </div>
       <div class="form-group row">
         <label class="col-sm-3 col-form-label" for="customer_contact_person">Ansprechpartner</label>
         <div class="col-sm-9">
-          <input type="text" class="form-control">
+          <input type="text" class="form-control" formControlName="customer_contact_person">
         </div>
       </div>
       <div class="form-group row">
         <label class="col-sm-3 col-form-label" for="customer_address">Anschrift</label>
         <div class="col-sm-9">
-          <input type="text" class="form-control">
+          <input type="text" class="form-control" formControlName="customer_address">
         </div>
       </div>
       <div class="form-group row">
         <label class="col-sm-3 col-form-label" for="customer_zip">PLZ</label>
         <div class="col-sm-9">
-          <input type="text" class="form-control">
+          <input type="text" class="form-control" formControlName="customer_zip">
         </div>
       </div>
       <div class="form-group row">
         <label class="col-sm-3 col-form-label" for="customer_city">Ort</label>
         <div class="col-sm-9">
-          <input type="text" class="form-control">
+          <input type="text" class="form-control" formControlName="customer_city">
         </div>
       </div>
     </div>
@@ -38,43 +44,43 @@
       <div class="form-group row">
         <label class="col-sm-3 col-form-label" for="iban">IBAN</label>
         <div class="col-sm-9">
-          <input type="text" class="form-control">
+          <input type="text" class="form-control" formControlName="iban">
         </div>
       </div>
       <div class="form-group row">
         <label class="col-sm-3 col-form-label" for="bic">BIC</label>
         <div class="col-sm-9">
-          <input type="text" class="form-control">
+          <input type="text" class="form-control" formControlName="bic">
         </div>
       </div>
       <div class="form-group row">
         <label class="col-sm-3 col-form-label" for="account_owner">Kontoinhaber</label>
         <div class="col-sm-9">
-          <input type="text" class="form-control">
+          <input type="text" class="form-control" formControlName="account_owner">
         </div>
       </div>
       <div class="form-group row">
         <label class="col-sm-3 col-form-label" for="mandate_reference">Mandatsreferenz</label>
         <div class="col-sm-9">
-          <input type="text" class="form-control">
+          <input type="text" class="form-control" formControlName="mandate_reference">
         </div>
       </div>
       <div class="form-group row">
         <label class="col-sm-3 col-form-label" for="mandate_city">Mandat Ort</label>
         <div class="col-sm-9">
-          <input type="text" class="form-control">
+          <input type="text" class="form-control" formControlName="mandate_city">
         </div>
       </div>
       <div class="form-group row">
         <label class="col-sm-3 col-form-label" for="mandate_date">Mandat Datum</label>
         <div class="col-sm-9">
-          <input type="text" class="form-control">
+          <input type="text" class="form-control" formControlName="mandate_date">
         </div>
       </div>
       <div class="form-group row">
         <label class="col-sm-3 col-form-label" for="mandate_signee">Mandat person</label>
         <div class="col-sm-9">
-          <input type="text" class="form-control">
+          <input type="text" class="form-control" formControlName="mandate_signee">
         </div>
       </div>
     </div>
@@ -86,13 +92,13 @@
           <div class="form-group row">
             <label class="col-sm-3 col-form-label" for="invoice_number">Rechnungsnr.</label>
             <div class="col-sm-9">
-              <input type="text" class="form-control">
+              <input type="text" class="form-control" formControlName="invoice_number">
             </div>
           </div>
           <div class="form-group row">
             <label class="col-sm-3 col-form-label" for="invoice_period">Zeitraum</label>
             <div class="col-sm-9">
-              <input type="text" class="form-control">
+              <input type="text" class="form-control" formControlName="invoice_period">
             </div>
           </div>
         </div>
@@ -100,13 +106,13 @@
           <div class="form-group row">
             <label class="col-sm-3 col-form-label" for="invoice_date">Rechnungsdatum</label>
             <div class="col-sm-9">
-              <input type="text" class="form-control">
+              <input type="text" class="form-control" formControlName="invoice_date">
             </div>
           </div>
           <div class="form-group row">
             <label class="col-sm-3 col-form-label" for="invoice_due_date">Fälligkeitsdatum</label>
             <div class="col-sm-9">
-              <input type="text" class="form-control">
+              <input type="text" class="form-control" formControlName="invoice_due_date">
             </div>
           </div>
         </div>

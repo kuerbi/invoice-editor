@@ -6,12 +6,14 @@ import { NgModule } from '@angular/core';
 import { InvoiceEditorComponent } from './invoice-editor.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { InvoiceComponent } from './invoice/invoice.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
     imports: [
       RouterModule.forChild([{
         path: ':customer_id', component: InvoiceEditorComponent
-      }])
+      }]),
+      ReactiveFormsModule
     ],
     declarations: [
         InvoiceEditorComponent,
