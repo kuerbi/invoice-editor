@@ -133,8 +133,14 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-
+          <tr *ngFor="let item of invoiceForm.controls.line_items.value; let pos = index">
+            <td>{{ pos+1 }} </td>
+            <td><input class="form-control" type="text"></td>
+            <td><textarea name="" id="" cols="30" rows="1"></textarea></td>
+            <td><input class="form-control" type="text"></td>
+            <td><input class="form-control" type="text"></td>
+            <td><input class="form-control" type="text"></td>
+            <td></td>
           </tr>
         </tbody>
       </table>
