@@ -1,16 +1,20 @@
+import { InvoiceEditorModule } from './invoice-editor/invoice-editor.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
-import { SidenavComponent } from './src/app/invoice-editor/sidenav/sidenav.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    SidenavComponent
+    AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    InvoiceEditorModule,
+    RouterModule.forRoot([
+      { path: '**', redirectTo: 'invoice-editor', pathMatch: 'full' },
+      { path: 'invoice-editor', loadChildren: "./invoice-editor/invoice-editor.module#InvoiceEditorModule" }
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]

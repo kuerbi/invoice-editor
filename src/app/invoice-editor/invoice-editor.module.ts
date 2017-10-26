@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 // Angular Imports
 import { NgModule } from '@angular/core';
 
@@ -8,7 +9,9 @@ import { InvoiceComponent } from './invoice/invoice.component';
 
 @NgModule({
     imports: [
-
+      RouterModule.forChild([{
+        path: ':customer_id', component: InvoiceEditorComponent
+      }])
     ],
     declarations: [
         InvoiceEditorComponent,
