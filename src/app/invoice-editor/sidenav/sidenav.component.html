@@ -1,5 +1,5 @@
-<ul class="list-group">
-  <li class="list-group-item" *ngFor="let invoice of invoices; let i = index">
+<div class="list-group">
+  <a class="list-group-item" [routerLink]="['/invoice-editor',i]" *ngFor="let invoice of invoices; let i = index">
     {{ invoice.customer_name }}
-  </li>
-</ul>
+  </a>
+</div>

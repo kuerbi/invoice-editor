@@ -1,13 +1,18 @@
-  <div class="row">
-    <div class="col-sm-12">
-      <h1>Rechnungs-Editor</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <h1>Rechnungs-Editor</h1>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-2">
-      <app-sidenav [invoices]="invoiceService.invoices"></app-sidenav>
-    </div>
-    <div class="col-sm-10">
-      <app-invoice></app-invoice>
+    <div class="row">
+      <div class="col-sm-2">
+        <button (click)="newInvoice()">Rechnung</button>
+        <app-sidenav [invoices]="invoiceService.invoices"></app-sidenav>
+      </div>
+      <div class="col-sm-10">
+        <ng-container *ngIf="invoiceService.invoices">
+          <app-invoice [invoice]="invoiceService.currentInvoice | async"></app-invoice>
+        </ng-container>
+      </div>
     </div>
   </div>

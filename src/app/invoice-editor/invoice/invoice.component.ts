@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { InvoiceService } from './../invoice.service';
+import { Invoice } from './../models/invoice';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
 
 
@@ -8,10 +10,12 @@ import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
   styleUrls: ['./invoice.component.css']
 })
 export class InvoiceComponent implements OnInit {
+  @Input() invoice: Invoice;
+
   public invoiceForm: FormGroup;
   public lineItems: FormArray;
 
-  constructor(private _fb: FormBuilder) {
+  constructor(private _fb: FormBuilder, private invoiceService: InvoiceService) {
     this.invoiceForm = this._fb.group({
       customer_id: [""],
       customer_name: [""],
@@ -32,9 +36,18 @@ export class InvoiceComponent implements OnInit {
       invoice_due_date: [""],
       line_items: this._fb.array([ ])
     });
+
+    this.invoiceService.currentInvoice.subscribe((data) => {
+      if(data != null) {
+        this.invoiceForm.patchValue(data);
+      }
+    });
   }
 
+  get line_items(): FormArray { return this.invoiceForm.get('line_items') as FormArray; }
+
   ngOnInit() {
+    this.invoiceForm.patchValue(this.invoice);
   }
 
   createListItem(): FormGroup {
@@ -47,8 +60,7 @@ export class InvoiceComponent implements OnInit {
   }
 
   addItem(): void {
-    this.lineItems = this.invoiceForm.get('line_items') as FormArray;
-    this.lineItems.push(this.createListItem());
+    this.line_items.push(this.createListItem());
   }
 
 }

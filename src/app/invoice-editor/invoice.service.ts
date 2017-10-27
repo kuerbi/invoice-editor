@@ -2,22 +2,30 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { Invoice } from './models/invoice';
 
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Observable } from 'rxjs/Observable';
+import { Subscription } from 'rxjs/Subscription';
 
 @Injectable()
 export class InvoiceService {
   public invoices: Array<Invoice>;
-  private currentSelected: number;
+  public currentInvoice: BehaviorSubject<Invoice> = new BehaviorSubject<Invoice>(new Invoice());
 
   constructor(private _http: Http) {}
 
+  changeCurrentInvoice(n: number) {
+    this.currentInvoice.next(this.getInvoice(n));
+  }
+
   getInvoice(n: number): Invoice {
+    if(!this.invoices) return null;
     if(this.invoices.length < n) return null;
 
     return this.invoices[n];
   }
 
-  loadInvoices(filename: string): void {
-    this._http.get(filename)
+  loadInvoices(filename: string): Subscription {
+    return this._http.get(filename)
       .subscribe((data) => {
         // todo: throw execption when format invalid
         this.invoices = JSON.parse(data['_body']);

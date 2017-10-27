@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 
+
 @NgModule({
   declarations: [
     AppComponent
@@ -12,8 +13,8 @@ import { RouterModule } from '@angular/router';
     BrowserModule,
     InvoiceEditorModule,
     RouterModule.forRoot([
-      { path: '**', redirectTo: 'invoice-editor', pathMatch: 'full' },
-      { path: 'invoice-editor', loadChildren: "./invoice-editor/invoice-editor.module#InvoiceEditorModule" }
+      { path: 'invoice-editor', loadChildren: "./invoice-editor/invoice-editor.module#InvoiceEditorModule" },
+      { path: '**', redirectTo: 'invoice-editor', pathMatch: 'full' }
     ])
   ],
   providers: [],

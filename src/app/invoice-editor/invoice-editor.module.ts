@@ -9,23 +9,24 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
 
+
 @NgModule({
-    imports: [
-      CommonModule,
-      RouterModule.forChild([{
-        path: ':customer_id', component: InvoiceEditorComponent
-      }]),
-      ReactiveFormsModule,
-      HttpModule
-    ],
-    declarations: [
-        InvoiceEditorComponent,
-        SidenavComponent,
-        InvoiceComponent,
-    ],
-    exports: [
-        InvoiceEditorComponent,
-    ]
+  imports: [
+    CommonModule,
+    RouterModule.forChild([{
+      path: ':id', component: InvoiceEditorComponent
+    }]),
+    ReactiveFormsModule,
+    HttpModule
+  ],
+  declarations: [
+      InvoiceEditorComponent,
+      SidenavComponent,
+      InvoiceComponent,
+  ],
+  exports: [
+      InvoiceEditorComponent,
+  ]
 })
 export class InvoiceEditorModule {
 
