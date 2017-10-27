@@ -6,22 +6,26 @@ export class InvoiceItem {
 };
 
 export class Invoice {
-  customer_id: string;
-  customer_name: string;
-  customer_contact_person: string;
-  customer_address: string;
-  customer_zip: string;
-  customer_city: string;
-  iban: string;
-  bic: string;
-  account_owner: string;
-  mandate_reference: string;
-  mandate_city: string;
-  mandate_date: string;
-  mandate_signee: string;
-  invoice_number: string;
-  invoice_period: string;
-  invoice_date: string;
-  invoice_due_date: string;
-  line_items: Array<InvoiceItem>;
+  constructor(
+    public customer_id: number = -1,
+    public customer_name: string = '',
+    public customer_contact_person: string = '',
+    public customer_address: string = '',
+    public customer_zip: string = '',
+    public customer_city: string = '',
+    public iban: string = '',
+    public bic: string = '',
+    public account_owner: string = '',
+    public mandate_reference: string = '',
+    public mandate_city: string = '',
+    public mandate_date: string = '',
+    public mandate_signee: string = '',
+    public invoice_number: string = '',
+    public invoice_period: string = '',
+    public invoice_date: string = '',
+    public invoice_due_date: string = '',
+    public line_items: Array<InvoiceItem> = [new InvoiceItem()],
+  ) {
+
+  }
 };
