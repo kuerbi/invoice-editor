@@ -1,8 +1,5 @@
 <ul class="list-group">
-  <li class="list-group-item active">
-    First
-  </li>
-  <li class="list-group-item">
-    Second
+  <li class="list-group-item" *ngFor="let invoice of invoices; let i = index">
+    {{ invoice.customer_name }}
   </li>
 </ul>
