@@ -1,4 +1,4 @@
-import { InvoiceService } from './invoice.service';
+import { InvoiceListService } from './invoice-list.service';
 import { Component, OnInit } from '@angular/core';
 import { Invoice } from './models/invoice';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -12,19 +12,19 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class InvoiceEditorComponent {
   currentInvoiceIndex: number;
 
-  constructor(public invoiceService: InvoiceService,
+  constructor(public invoiceListService: InvoiceListService,
               public route: ActivatedRoute) {
-    this.invoiceService.loadInvoices("./assets/raw_invoices.json");
+    this.invoiceListService.loadInvoices("./assets/raw_invoices.json");
 
     this.route.params.subscribe(params => {
       this.currentInvoiceIndex = params["id"];
-      this.invoiceService.changeCurrentInvoice(params["id"]);
+      this.invoiceListService.changeCurrentInvoice(params["id"]);
     });
 
   }
 
   newInvoice() {
-    this.invoiceService.invoices.push(new Invoice());
+    this.invoiceListService.invoices.push(new Invoice());
   }
 
   importInvoice() {

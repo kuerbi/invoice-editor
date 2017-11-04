@@ -7,7 +7,7 @@ import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
 
 @Injectable()
-export class InvoiceService {
+export class InvoiceListService {
   public invoices: Array<Invoice>;
   public currentInvoice: BehaviorSubject<Invoice> = new BehaviorSubject<Invoice>(new Invoice());
 

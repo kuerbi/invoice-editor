@@ -1,16 +1,18 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
+import { Invoice } from '../models/invoice';
 
 @Component({
   selector: 'app-sidenav',
   templateUrl: './sidenav.component.html',
   styleUrls: ['./sidenav.component.css']
 })
-export class SidenavComponent implements OnInit {
-  @Input() invoices;
+export class SidenavComponent implements AfterViewInit {
+  @Input() invoices: Array<Invoice>;
 
   constructor() { }
 
-  ngOnInit() {
+  ngAfterViewInit() {
+    console.log(this.invoices);
   }
 
 }
