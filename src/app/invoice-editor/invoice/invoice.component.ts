@@ -38,7 +38,7 @@ export class InvoiceComponent implements OnInit {
 
     this.invoiceListService.currentInvoice.subscribe((data) => {
       if(data != null) {
-        this.invoiceForm.patchValue(data);
+       this.invoiceForm.patchValue(data);
       }
     });
   }
