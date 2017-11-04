@@ -7,8 +7,7 @@ import { Router, ActivatedRoute } from '@angular/router';
     moduleId: module.id,
     selector: 'invoice-editor',
     templateUrl: 'invoice-editor.component.html',
-    styleUrls: ['invoice-editor.component.scss'],
-    providers: [ InvoiceService ]
+    styleUrls: ['invoice-editor.component.scss']
 })
 export class InvoiceEditorComponent {
   currentInvoiceIndex: number;

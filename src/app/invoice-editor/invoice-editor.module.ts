@@ -8,6 +8,7 @@ import { InvoiceComponent } from './invoice/invoice.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
+import { InvoiceService } from './invoice.service';
 
 
 @NgModule({
@@ -26,6 +27,9 @@ import { HttpModule } from '@angular/http';
   ],
   exports: [
       InvoiceEditorComponent,
+  ],
+  providers: [
+    InvoiceService
   ]
 })
 export class InvoiceEditorModule {

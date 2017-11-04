@@ -13,7 +13,6 @@ export class InvoiceComponent implements OnInit {
   @Input() invoice: Invoice;
 
   public invoiceForm: FormGroup;
-  public lineItems: FormArray;
 
   constructor(private _fb: FormBuilder, private invoiceService: InvoiceService) {
     this.invoiceForm = this._fb.group({
@@ -47,7 +46,7 @@ export class InvoiceComponent implements OnInit {
   get line_items(): FormArray { return this.invoiceForm.get('line_items') as FormArray; }
 
   ngOnInit() {
-    this.invoiceForm.patchValue(this.invoice);
+    // this.invoiceForm.patchValue(this.invoice);
   }
 
   createListItem(): FormGroup {
@@ -55,7 +54,7 @@ export class InvoiceComponent implements OnInit {
       name: '',
       description: '',
       quantity: '',
-      price_cents: 0
+      price_cents: 100
     });
   }
 

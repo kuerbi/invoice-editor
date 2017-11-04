@@ -28,4 +28,12 @@ export class Invoice {
   ) {
 
   }
+
+  get sum_price() {
+    let sum = 0;
+    for(let item of this.line_items) {
+      sum += item.price_cents;
+    }
+    return sum;
+  }
 };
