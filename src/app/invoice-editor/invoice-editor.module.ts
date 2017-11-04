@@ -14,9 +14,9 @@ import { InvoiceService } from './invoice.service';
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild([{
-      path: ':id', component: InvoiceEditorComponent
-    }]),
+    RouterModule.forChild([
+      { path: ':id', component: InvoiceEditorComponent }
+    ]),
     ReactiveFormsModule,
     HttpModule
   ],

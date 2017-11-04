@@ -46,7 +46,7 @@ export class InvoiceComponent implements OnInit {
   get line_items(): FormArray { return this.invoiceForm.get('line_items') as FormArray; }
 
   ngOnInit() {
-    // this.invoiceForm.patchValue(this.invoice);
+    this.invoiceService.changeCurrentInvoice(0);
   }
 
   createListItem(): FormGroup {

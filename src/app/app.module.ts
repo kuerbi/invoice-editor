@@ -14,7 +14,7 @@ import { RouterModule } from '@angular/router';
     InvoiceEditorModule,
     RouterModule.forRoot([
       { path: 'invoice-editor', loadChildren: "./invoice-editor/invoice-editor.module#InvoiceEditorModule" },
-      { path: '**', redirectTo: 'invoice-editor', pathMatch: 'full' }
+      { path: '**', redirectTo: 'invoice-editor/0', pathMatch: 'full' }
     ])
   ],
   providers: [],
