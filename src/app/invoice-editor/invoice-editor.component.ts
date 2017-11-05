@@ -10,14 +10,11 @@ import { Router, ActivatedRoute } from '@angular/router';
     styleUrls: ['invoice-editor.component.scss']
 })
 export class InvoiceEditorComponent {
-  currentInvoiceIndex: number;
-
   constructor(public invoiceListService: InvoiceListService,
               public route: ActivatedRoute) {
     this.invoiceListService.loadInvoices("./assets/raw_invoices.json");
 
     this.route.params.subscribe(params => {
-      this.currentInvoiceIndex = params["id"];
       this.invoiceListService.changeCurrentInvoice(params["id"]);
     });
 

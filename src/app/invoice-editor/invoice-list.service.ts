@@ -9,11 +9,13 @@ import { Subscription } from 'rxjs/Subscription';
 @Injectable()
 export class InvoiceListService {
   public invoices: Array<Invoice>;
+  public currentInvoiceIndex;
   public currentInvoice: BehaviorSubject<Invoice> = new BehaviorSubject<Invoice>(new Invoice());
 
   constructor(private _http: Http) {}
 
   changeCurrentInvoice(n: number) {
+    this.currentInvoiceIndex = n;
     this.currentInvoice.next(this.getInvoice(n));
   }
 

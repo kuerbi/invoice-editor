@@ -12,7 +12,6 @@ export class SidenavComponent implements AfterViewInit {
   constructor() { }
 
   ngAfterViewInit() {
-    console.log("foo",this.invoices);
   }
 
 }
