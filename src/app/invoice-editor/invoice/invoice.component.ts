@@ -74,8 +74,6 @@ export class InvoiceComponent implements OnInit {
     }
   }
 
-
-
   private createListItem(item?: InvoiceItem): FormGroup {
     return this._fb.group({
       name: item ? item.name:'',
@@ -95,4 +93,7 @@ export class InvoiceComponent implements OnInit {
    (<FormArray>this.invoiceForm.get('line_items')).removeAt(item);
   }
 
+  removeInvoice() {
+    console.log( "TODO: remove invoice" );
+  }
 }
