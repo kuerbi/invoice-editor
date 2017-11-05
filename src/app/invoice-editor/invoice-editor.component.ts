@@ -27,11 +27,19 @@ export class InvoiceEditorComponent {
     this.invoiceListService.invoices.push(new Invoice());
   }
 
+  // TODO
   importInvoice() {
+    let eingabe = window.prompt("Gib ein JSON ein um eine Rechnung zu importieren");
 
+    try {
+      let json = JSON.parse(eingabe);
+      this.invoiceListService.invoices.push(json);
+    } catch(e) {
+      console.error("Ungültiges JSON");
+    }
   }
 
   exportInvoice() {
-
+    console.log("Exported Invoice", this.invoiceListService.currentInvoice.getValue());
   }
 }
