@@ -62,4 +62,8 @@ export class InvoiceComponent implements OnInit {
     this.line_items.push(this.createListItem());
   }
 
+  removeItem(item: number) {
+   (<FormArray>this.invoiceForm.get('line_items')).removeAt(item);
+  }
+
 }
