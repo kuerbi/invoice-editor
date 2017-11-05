@@ -140,7 +140,7 @@
               <td><textarea formControlName="description" name="" id="" cols="30" rows="1"></textarea></td>
               <td><input formControlName="quantity" class="form-control" type="text"></td>
               <td><input formControlName="price_cents" class="form-control" type="text"></td>
-              <td><input class="form-control" type="text"></td>
+              <td> {{ (item.controls.quantity.value * item.controls.price_cents.value / 100) | currency:'EUR':'symbol':'1.2' }} </td>
               <td>
                 <button type="button" class="btn btn-default" (click)="removeItem(pos)" aria-label="Left Align">
                   <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
