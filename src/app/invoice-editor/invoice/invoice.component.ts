@@ -36,18 +36,10 @@ export class InvoiceComponent implements OnInit {
       line_items: this._fb.array([ ])
     });
 
-    this.invoiceForm.valueChanges.subscribe((data) => {
-      this.invoiceListService.invoices[ this.invoiceListService.currentInvoiceIndex ] = data;
-    });
-
     this.invoiceListService.currentInvoice.subscribe((data) => {
       if(data != null) {
+        this.adjustLineItemsArray(data.line_items);
         this.invoiceForm.patchValue(data);
-        this.invoiceForm.controls.line_items = this._fb.array([]);
-
-        for(let item of data.line_items) {
-          this.addItem(item);
-        }
       }
     });
   }
@@ -56,6 +48,18 @@ export class InvoiceComponent implements OnInit {
 
   ngOnInit() {
     this.invoiceListService.changeCurrentInvoice(0);
+  }
+
+  private adjustLineItemsArray(items: any[]) {
+    const count = items ? items.length : 0;
+
+    while(count > this.line_items.controls.length) {
+      this.line_items.push(this.createListItem());
+    }
+
+    while(count < this.line_items.controls.length) {
+      this.removeItem(0);
+    }
   }
 
   private createListItem(item?: InvoiceItem): FormGroup {
