@@ -36,11 +36,23 @@ export class InvoiceComponent implements OnInit {
       line_items: this._fb.array([ ])
     });
 
+    this.loadInvoice();
+    this.updateInvoiceList();
+  }
+
+  private loadInvoice() {
     this.invoiceListService.currentInvoice.subscribe((data) => {
       if(data != null) {
+        this.invoiceForm.reset();
         this.adjustLineItemsArray(data.line_items);
         this.invoiceForm.patchValue(data);
       }
+    });
+  }
+
+  private updateInvoiceList() {
+    this.invoiceForm.valueChanges.subscribe((data) => {
+      this.invoiceListService.invoices[this.invoiceListService.currentInvoiceIndex] = data;
     });
   }
 

@@ -8,6 +8,9 @@ export class InvoiceItemSumPipe implements PipeTransform {
 
   transform(value: Invoice, args?: any): any {
     let sum = 0;
+
+    if(!value.line_items) return 0;
+
     for(let line_item of value.line_items) {
       sum += line_item.price_cents
     };

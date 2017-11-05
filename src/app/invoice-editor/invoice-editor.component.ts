@@ -30,7 +30,11 @@ export class InvoiceEditorComponent {
 
     try {
       let json = JSON.parse(eingabe);
-      this.invoiceListService.invoices.push(json);
+
+      if(json.customer_name) {
+        console.log(json);
+        this.invoiceListService.invoices.push(json as Invoice);
+      }
     } catch(e) {
       console.error("Ungültiges JSON");
     }
