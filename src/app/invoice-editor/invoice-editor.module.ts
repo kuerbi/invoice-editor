@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
 import { InvoiceListService } from './invoice-list.service';
+import { InvoiceItemSumPipe } from './pipes/invoice-item-sum.pipe';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { InvoiceListService } from './invoice-list.service';
       InvoiceEditorComponent,
       SidenavComponent,
       InvoiceComponent,
+      InvoiceItemSumPipe,
   ],
   exports: [
       InvoiceEditorComponent,

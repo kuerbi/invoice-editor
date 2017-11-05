@@ -1,5 +1,6 @@
 <div class="list-group">
   <a class="list-group-item" [routerLink]="['/invoice-editor',i]" *ngFor="let invoice of invoices; let i = index">
     {{ invoice.customer_name }}
+    {{ invoice | invoiceItemSum | currency:'EUR':'symbol':'1.2' }}
   </a>
 </div>

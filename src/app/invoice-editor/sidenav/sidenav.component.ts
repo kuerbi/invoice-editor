@@ -12,7 +12,7 @@ export class SidenavComponent implements AfterViewInit {
   constructor() { }
 
   ngAfterViewInit() {
-    console.log(this.invoices);
+    console.log("foo",this.invoices);
   }
 
 }
